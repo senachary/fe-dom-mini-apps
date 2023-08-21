@@ -1,26 +1,43 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Dad Jokes Generator</title>
-    
-    <link rel="shortcut icon" href="#">
-</head>
-<body>
-  
-  <div>
-    <h1>Dad Jokes Generator</h1>
-    <div>
-        <p class="jokes-list" id="new-joke">
-            <ul></ul>
-        </p>
-    </div>
-    <div>
-        <button id="joke-button">Generate Joke</button>
-    </div>
-  </div>
+    <link rel="stylesheet" href="style.css" />
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/css?family=Font+Name"
+    />
+    <link rel="shortcut icon" href="#" />
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/bulma@0.9.4/css/bulma.min.css"
+    />
+  </head>
+  <body>
+    <div class="columns">
+      <div class="level-item has-text-centered">
+        <button class="button is-primary" id="joke-button">
+          <h1>Start</h1>
+        </button>
+      </div>
+      <nav class="level">
+        <div class="level-item has-text-centered">
+          <p class="jokes-list" id="new-joke"></p>
+        </div>
+      </nav>
 
-  <script src="script.js"></script>
-</body>
+      <div class="has-text-centered">
+        <div class="column">
+          <button class="button is-success" id="true-button">True</button>
+        </div>
+        <div class="column">
+          <button class="button is-danger" id="false-button">False</button>
+        </div>
+      </div>
+    </div>
+
+    <script src="script.js"></script>
+  </body>
 </html>

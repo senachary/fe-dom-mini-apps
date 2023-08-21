@@ -1,42 +1,20 @@
-
-
-// const jokes = []
-
-
-// const jokesList = document.getElementById("new-joke");
-
-// function addJoke(joke) {
-//     const newJoke = document.createElement("li")
-//     newJoke.innerText = joke
-//     jokesList.innerText(newJoke)
-// }
-
-// jokes.forEach(addJoke)
-
-// const jokeButton = document.getElementById("joke-button")
-
-// jokeButton.addEventListener("click", (mouseEvent) => {
-//     addJoke("testJoke")
-// })
-
-const jokeButton = document.getElementById("joke-button")
-const jokeList = document.getElementById("new-joke")
+const jokeButton = document.getElementById("joke-button");
+const jokeList = document.getElementById("new-joke");
 
 async function fetchJoke() {
-    const response = await fetch("https://icanhazdadjoke.com", {
-        headers: {
-            Accept: "application/json",
-        },
-    })
-    return response.json()
-
-};
+  const response = await fetch("https://opentdb.com/api.php?amount=10", {
+    headers: {
+      Accept: "application/json",
+    },
+  });
+  return response.json();
+}
 
 //fetchJoke();
 
 async function clickButton() {
-    const { joke } = await fetchJoke()
-    jokeList.textContent = joke
+  const data = await fetchJoke();
+  jokeList.textContent = data.results[0].question;
 }
 
-jokeButton.addEventListener("click", clickButton)
+jokeButton.addEventListener("click", clickButton);
