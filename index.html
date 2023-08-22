@@ -16,34 +16,37 @@
     />
   </head>
   <body>
+    <div id="heading">
+      <h1>QUIZ GAME</h1>
+    </div>
     <div class="container">
-      <section class="level">
+      <div class="quiz-score">
         <h1>Score:</h1>
         <p id="quiz-score"></p>
+      </div>
+      <div class="quiz-question">
         <h1>Question:</h1>
         <p id="quiz-question"></p>
-      </section>
-      <div class="columns">
-        <div class="level-item has-text-centered">
-          <button class="button is-primary" id="start-button">
-            <h1>Start</h1>
-          </button>
-        </div>
-        <nav class="level">
-          <div class="level-item has-text-centered">
-            <p class="jokes-list" id="new-question"></p>
-          </div>
-        </nav>
-
-        <div class="has-text-centered">
-          <div class="column">
-            <button class="button is-success" id="true-button">True</button>
-          </div>
-          <div class="column">
-            <button class="button is-danger" id="false-button">False</button>
-          </div>
-        </div>
       </div>
+
+      <button class="button is-primary" id="start-button">
+        <h1>Start</h1>
+      </button>
+      <div class="category">
+        <img
+          src="./images/quiz.png"
+          alt="image"
+          id="category"
+          height="200"
+          width="200"
+        />
+      </div>
+
+      <p class="jokes-list" id="new-question"></p>
+
+      <button class="button is-success" id="true-button">True</button>
+
+      <button class="button is-danger" id="false-button">False</button>
     </div>
 
     <script src="script.js"></script>
