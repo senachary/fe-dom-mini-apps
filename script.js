@@ -3,12 +3,15 @@ const trueButton = document.getElementById("true-button");
 const falseButton = document.getElementById("false-button");
 const questionList = document.getElementById("new-question");
 const score = document.getElementById("quiz-score");
-
+const questionNumber = document.getElementById("quiz-question");
+let currentScore = 0;
+let currentQuestion = 0;
+let data
 
 
 //fetching question data
 async function fetchQuestion() {
-  const response = await fetch("https://opentdb.com/api.php?amount=10&type=boolean", {
+  const response = await fetch("https://opentdb.com/api.php?amount=5&type=boolean", {
     headers: {
       Accept: "application/json",
     },
@@ -17,35 +20,36 @@ async function fetchQuestion() {
 }
 
 
-
 //call the startQuiz function
 async function startQuiz() {
-    const data = await fetchQuestion();
-    let currentScore = 0;
-    let currentQuestion = 0;
-    score.textContent = currentScore
-    showQuestion()
+  data = await fetchQuestion();
+  currentScore = 0;
+  currentQuestion = 1;
+  score.textContent = currentScore
+  questionNumber.textContent = currentQuestion
+  trueButton.addEventListener('click', answerButtonClick);
+  falseButton.addEventListener('click', answerButtonClick);
+  showQuestion()
+}
+
+function answerButtonClick(event) {
+  const answerGiven = event.target.id === "true-button" ? "True" : "False"
+  const correctAnswer = data.results[currentQuestion].correct_answer;
+  checkAnswer(answerGiven, correctAnswer)
 }
 
 //Function to display the Questions
 function showQuestion() {
     //determine if question number is less than question array length
+    console.log(data.results[currentQuestion])
     if (currentQuestion < data.results.length) {
         const question = data.results[currentQuestion].question;
         const correctAnswer = data.results[currentQuestion].correct_answer;
 
         questionList.textContent = question;
-        //user clicks true
-        trueButton.addEventListener('click', function () {
-            checkAnswer("True", correctAnswer)
-        });
-        //user clicks false
-        falseButton.addEventListener('click', function () {
-            checkAnswer("False", correctAnswer)
-        });
 
     } else {
-        questionList.textContent = "Quiz Comepleted"
+        questionList.textContent = "Quiz Completed"
     }
     
 }
@@ -53,7 +57,13 @@ function showQuestion() {
 //write checkAnswer function
 
 function checkAnswer(answerGiven, correctAnswer) {
-    
+  if (answerGiven === correctAnswer) {
+    currentScore += 1
+  }
+  currentQuestion += 1
+  score.textContent = currentScore
+  questionNumber.textContent = currentQuestion
+  showQuestion()
 }
 
 //start the quiz with start button
