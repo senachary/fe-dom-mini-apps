@@ -31,8 +31,25 @@ async function startQuiz() {
   score.innerText = currentScore;
   questionNumber.innerText = currentQuestion;
   const categoryType = data.results[currentQuestion].category;
-
-  categoryImage.src = `./images/${categoryType}.png`;
+  if (categoryType.startsWith("Enter")) {
+    categoryImage.src = `./images/entertainment.png`;
+  }
+  if (categoryType.startsWith("General")) {
+    categoryImage.src = `./images/general.png`;
+  }
+  if (categoryType.startsWith("Science")) {
+    categoryImage.src = `./images/science.png`;
+  }
+  if (categoryType.startsWith("Politics")) {
+    categoryImage.src = `./images/politics.png`;
+  }
+  if (categoryType.startsWith("Animals")) {
+    categoryImage.src = `./images/animals.png`;
+  }
+  if (categoryType.startsWith("Sports")) {
+    categoryImage.src = `./images/sports.png`;
+  }
+  
   trueButton.addEventListener("click", answerButtonClick);
   falseButton.addEventListener("click", answerButtonClick);
   showQuestion();
@@ -51,6 +68,25 @@ function showQuestion() {
   if (currentQuestion < data.results.length) {
     const question = data.results[currentQuestion].question;
     const correctAnswer = data.results[currentQuestion].correct_answer;
+    const categoryType = data.results[currentQuestion].category;
+    if (categoryType.startsWith("Enter")) {
+      categoryImage.src = `./images/entertainment.png`;
+    }
+    if (categoryType.startsWith("General")) {
+      categoryImage.src = `./images/general.png`;
+    }
+    if (categoryType.startsWith("Science")) {
+      categoryImage.src = `./images/science.png`;
+    }
+    if (categoryType.startsWith("Politics")) {
+      categoryImage.src = `./images/politics.png`;
+    }
+    if (categoryType.startsWith("Animals")) {
+      categoryImage.src = `./images/animals.png`;
+    }
+    if (categoryType.startsWith("Sports")) {
+      categoryImage.src = `./images/sports.png`;
+    }
 
     questionList.innerText = question;
   } else {
@@ -65,8 +101,8 @@ function checkAnswer(answerGiven, correctAnswer) {
     currentScore += 1;
   }
   currentQuestion += 1;
-  score.textContent = currentScore;
-  questionNumber.textContent = currentQuestion;
+  score.innerText = currentScore;
+  questionNumber.innerText = currentQuestion;
   showQuestion();
 }
 
