@@ -10,6 +10,7 @@ body {
 }
 
 #heading {
+  margin-top: 5px;
   padding: 20px;
   font-size: 50px;
   font-family: Arial, Helvetica, sans-serif;
@@ -18,9 +19,24 @@ body {
   text-align: center;
   align-items: center;
   margin-bottom: 50px;
-  background-color: rgba(212, 162, 215, 0.627);
+  background-color: rgba(32, 26, 26, 0.1);
+  box-shadow: 3px 6px 10px rgba(0, 0, 0, 0.5);
   border-radius: 15px;
   width: auto;
+}
+
+.form {
+  width: 80%;
+  background-color: rgba(212, 117, 117, 0.1);
+  display: flex;
+  flex-direction: row;
+  margin: 30px;
+  background-color: rgba(32, 26, 26, 0.1);
+  box-shadow: 3px 6px 10px rgba(0, 0, 0, 0.5);
+  border-radius: 15px;
+}
+.field {
+  padding: 20px;
 }
 
 .container {

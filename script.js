@@ -13,7 +13,7 @@ let data;
 //fetching question data
 async function fetchQuestion() {
   const response = await fetch(
-    "https://opentdb.com/api.php?amount=5&type=boolean",
+    `https://opentdb.com/api.php?amount=10&type=boolean`,
     {
       headers: {
         Accept: "application/json",
@@ -49,7 +49,7 @@ async function startQuiz() {
   if (categoryType.startsWith("Sports")) {
     categoryImage.src = `./images/sports.png`;
   }
-  
+
   trueButton.addEventListener("click", answerButtonClick);
   falseButton.addEventListener("click", answerButtonClick);
   showQuestion();
